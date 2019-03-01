@@ -1,5 +1,5 @@
 class Solution(object):
-    def two_sum(self, nums, target):
+    def twoSum(self, nums, target):  # O(n)
         map = {}
         for i in range(len(nums)):
             if nums[i] in map:
@@ -7,10 +7,14 @@ class Solution(object):
             else:
                 map[target - nums[i]] = i
 
+    def print_answer(self, ans):
+        print(ans)
+
     def test(self):
         nums = [2, 7, 11, 15]
         target = 9
-        print(self.two_sum(nums, target))
+        ans = self.twoSum(nums, target)
+        self.print_answer(ans)
 
 
 if __name__ == '__main__':
