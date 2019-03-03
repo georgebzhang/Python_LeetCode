@@ -7,8 +7,8 @@ class Solution(object):
         reverse = 0
         while x > 0:
             digit = x % 10
-            x = x // 10
             reverse = reverse * 10 + digit
+            x //= 10
 
         return orig == reverse
 
