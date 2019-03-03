@@ -30,13 +30,12 @@ class Solution(object):
         return arr
 
     def array_to_linked_list(self, arr):
-        l = None
         prev = None
         for i in range(len(arr)):
-            l = ListNode(arr[i])
-            l.next = prev
-            prev = l
-        return l
+            n = ListNode(arr[i])
+            n.next = prev
+            prev = n
+        return n
 
     def addTwoNumbers(self, l1, l2):
         arr1 = self.linked_list_to_array(l1)
