@@ -2,7 +2,8 @@ class Solution(object):
     def print_mem(self, mem):
         for i in range(len(mem)):
             for j in range(len(mem[0])):
-                print(mem[i][j])
+                print(mem[i][j], " ", end="")
+            print()
 
     def longestPalindrome(self, s):  # O(n^2)
         n = len(s)
