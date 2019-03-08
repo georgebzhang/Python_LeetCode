@@ -14,8 +14,8 @@ class Solution(object):
                     return lcp
                 letters.append(item[ind])
 
-            letter = set(letters)
-            if len(letter) == 1:
+            letter = set(letters)  # convert list to set
+            if len(letter) == 1:  # only 1 element in set if all items in list were same
                 lcp += letter.pop()
             else:
                 return lcp
