@@ -85,7 +85,8 @@ class Solution(object):
     def test_mul(self):
         print('*: ', end='')
         l = [1, 2, 3]
-        print(l * 3)
+        l = l * 3
+        print(l)
 
     def test_ne(self):
         print('!=: ', end='')
