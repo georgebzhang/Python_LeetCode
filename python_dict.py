@@ -1,4 +1,11 @@
 class Solution(object):
+    def test_fromkeys(self):
+        print('fromkeys: ', end='')
+        kset = {'Bob', 'Alice', 'George', 'Jane', 'Xavier'}
+        value = 0
+        d = dict.fromkeys(kset, value)
+        print(d)
+
     def test_init_mapping(self):
         print('dict(mapping): ', end='')
         mapping = {
@@ -184,6 +191,7 @@ class Solution(object):
 
 
     def test_dict(self):
+        self.test_fromkeys()
         self.test_init_mapping()
         self.test_init_iterable()
         self.test_init_iterable2()
