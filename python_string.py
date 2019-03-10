@@ -15,7 +15,14 @@ class Solution(object):
         print('==: ', end='')
         s = 'hello'
         t = 'hello'
+        # t = t.replace('l', 'x')
+        # t = t.replace('x', 'l')
+        # print(id(s))
+        # print(id(t))
+        print(s)
+        print(t)
         print(s == t)
+        # print(s is t)
 
     def test_format(self):
         pass
@@ -100,14 +107,12 @@ class Solution(object):
     def test_capitalize(self):
         print('capitalize: ', end='')
         s = 'hello my name is george'
-        s = s.capitalize()
-        print(s)
+        print(s.capitalize())
 
     def test_casefold(self):
         print('casefold: ', end='')
         s = 'HelLo My nAme is gEoRGe'
-        s = s.casefold()
-        print(s)
+        print(s.casefold())
 
     def test_center(self):
         pass
