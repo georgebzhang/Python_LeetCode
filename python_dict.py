@@ -37,7 +37,7 @@ class Solution(object):
 
     def test_init_iterable2(self):
         print('dict(iterable): ', end='')
-        l = [['Bob', 5], ['Alice', 8], ['George', 69], ['Jane', 3], ['Xavier', 1]]
+        l = [('Bob', 5), ('George', 69), ('Alice', 8), ('Jane', 3), ('Xavier', 1)]  # can have pairs in lists, but tuples are faster
         d = dict(l)
         print(d)
 
