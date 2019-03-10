@@ -114,6 +114,9 @@ class Solution(object):
         d2 = dict(l)
         print(d1 != d2)
 
+    def test_reduce(self):
+        pass
+
     def test_repr(self):
         print('repr: ', end='')
         mapping = {'Bob': 5, 'Alice': 8, 'George': 69, 'Jane': 3, 'Xavier': 1}
@@ -127,6 +130,9 @@ class Solution(object):
         d['George'] = 7
         d['New'] = 42
         print(d)
+
+    def test_sizeof(self):
+        pass
 
     def test_clear(self):
         print('clear: ', end='')
