@@ -68,7 +68,7 @@ class Solution(object):
         print('==: ', end='')
         mapping = {'Bob': 5, 'Alice': 8, 'George': 69, 'Jane': 3, 'Xavier': 1}
         d1 = dict(mapping)
-        l = [['Bob', 5], ['George', 69], ['Alice', 8], ['Jane', 3], ['Xavier', 1]]  # k, v pairs don't have to be inserted in same order
+        l = [('Bob', 5), ('George', 69), ('Alice', 8), ('Jane', 3), ('Xavier', 1)]  # k, v pairs don't have to be inserted in same order
         d2 = dict(l)
         print(d1 == d2)
 
