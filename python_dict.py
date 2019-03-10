@@ -110,7 +110,7 @@ class Solution(object):
         print('!=: ', end='')
         mapping = {'Bob': 5, 'Alice': 7, 'George': 69, 'Jane': 3, 'Xavier': 1}
         d1 = dict(mapping)
-        l = [['Bob', 5], ['George', 69], ['Alice', 8], ['Jane', 3], ['Xavier', 1]]
+        l = [('Bob', 5), ('George', 69), ('Alice', 8), ('Jane', 3), ('Xavier', 1)]  # can have pairs in lists, but tuples are faster
         d2 = dict(l)
         print(d1 != d2)
 
