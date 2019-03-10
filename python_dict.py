@@ -6,6 +6,15 @@ class Solution(object):
         d = dict.fromkeys(kset, value)
         print(d)
 
+    def test_init(self):
+        print('dict(): ', end='')
+        d = dict()
+        d['Bob'] = 5
+        d['Alice'] = 8
+        d['George'] = 69
+        print(d)
+
+
     def test_init_mapping(self):
         print('dict(mapping): ', end='')
         mapping = {
@@ -189,9 +198,9 @@ class Solution(object):
             print(v, ' ', end='')
         print()
 
-
     def test_dict(self):
         self.test_fromkeys()
+        self.test_init()
         self.test_init_mapping()
         self.test_init_iterable()
         self.test_init_iterable2()
