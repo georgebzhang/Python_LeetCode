@@ -79,10 +79,11 @@ class Solution(object):
     def test_mod(self):
         pass
 
-    def test_mult(self):
+    def test_mul(self):
         print('*: ', end='')
         s = 'hello'
-        print(s * 3)
+        s = s * 3
+        print(s)
 
     def test_ne(self):
         print('!=: ', end='')
@@ -319,7 +320,7 @@ class Solution(object):
         self.test_le()
         self.test_len()
         self.test_lt()
-        self.test_mult()
+        self.test_mul()
         self.test_ne()
         self.test_repr()
         self.test_capitalize()
