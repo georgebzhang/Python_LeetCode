@@ -11,7 +11,7 @@ class Solution(object):
         s = 'hello my name is george'
         print('my' in s)
 
-    def test_equals(self):
+    def test_eq(self):
         print('==: ', end='')
         s = 'hello'
         t = 'hello'
@@ -311,7 +311,7 @@ class Solution(object):
     def test_string(self):
         self.test_add()
         self.test_contains()
-        self.test_equals()
+        self.test_eq()
         self.test_ge()
         self.test_getitem()
         self.test_gt()

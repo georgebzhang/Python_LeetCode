@@ -1,6 +1,6 @@
 class Solution(object):
     def test_add(self):
-        print('add: ', end='')
+        print('+: ', end='')
         l1 = [1, 2, 3]
         l2 = [4, 5, 6]
         print(l1 + l2)
@@ -16,7 +16,7 @@ class Solution(object):
         del l[2]
         print(l)
 
-    def test_equals(self):
+    def test_eq(self):
         print('==: ', end='')
         l1 = [1, 2, 3]
         l2 = [1, 2, 3]
@@ -188,7 +188,7 @@ class Solution(object):
         self.test_add()
         self.test_contains()
         self.test_delitem()
-        self.test_equals()
+        self.test_eq()
         self.test_ge()
         self.test_getitem()
         self.test_gt()
