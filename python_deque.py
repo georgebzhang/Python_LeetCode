@@ -35,13 +35,6 @@ class Solution(object):
         dq = deque(l)
         print(3 in dq)
 
-    def test_copy(self):
-        print('copy: ', end='')
-        l = [1, 2, 3, 4, 5]
-        dq1 = deque(l)
-        dq2 = dq1.copy()
-        print(dq2)
-
     def test_delitem(self):
         print('copy: ', end='')
         l = [1, 2, 3, 4, 5]
@@ -192,6 +185,37 @@ class Solution(object):
         dq.clear()
         print(dq)
 
+    def test_copy(self):
+        print('copy: ', end='')
+        l = [1, 2, 3, 4, 5]
+        dq1 = deque(l)
+        dq2 = dq1.copy()
+        print(dq2)
+
+    def test_count(self):
+        print('count: ', end='')
+        l = [1, 2, 3, 2, 3, 2]
+        dq = deque(l)
+        print(dq.count(2))
+
+    def test_extend(self):
+        print('extend: ', end='')
+        l1 = [1, 2, 3]
+        l2 = [4, 5, 6]
+        dq1 = deque(l1)
+        dq2 = deque(l2)
+        dq1.extend(dq2)
+        print(dq1)
+
+    def test_extendleft(self):
+        print('extendleft: ', end='')
+        l1 = [1, 2, 3]
+        l2 = [4, 5, 6]
+        dq1 = deque(l1)
+        dq2 = deque(l2)
+        dq1.extendleft(dq2)
+        print(dq1)
+
     def test_index(self):
         print('index: ', end='')
         l = [1, 2, 3, 4, 5]
@@ -244,7 +268,6 @@ class Solution(object):
         self.test_add()
         self.test_bool()
         self.test_contains()
-        self.test_copy()
         self.test_delitem()
         self.test_eq()
         self.test_ge()
@@ -264,6 +287,10 @@ class Solution(object):
         self.test_append()
         self.test_appendleft()
         self.test_clear()
+        self.test_copy()
+        self.test_count()
+        self.test_extend()
+        self.test_extendleft()
         self.test_index()
         self.test_insert()
         self.test_pop()
