@@ -2,6 +2,13 @@ from collections import OrderedDict
 
 
 class Solution(object):
+    def test_fromkeys(self):
+        print('fromkeys: ', end='')
+        kset = {'Bob', 'Alice', 'George', 'Jane', 'Xavier'}
+        value = 0
+        od = OrderedDict.fromkeys(kset, value)
+        print(od)
+
     def test_init_mapping(self):
         print('OrderedDict(mapping): ', end='')
         mapping = {
@@ -126,15 +133,87 @@ class Solution(object):
         pass
 
     def test_clear(self):
-        print('[] =: ', end='')
+        print('clear: ', end='')
         mapping = {'Bob': 5, 'Alice': 8, 'George': 69, 'Jane': 3, 'Xavier': 1}
         od = OrderedDict(mapping)
         od.clear()
         print(od)
 
+    def test_copy(self):
+        print('copy: ', end='')
+        mapping = {'Bob': 5, 'Alice': 8, 'George': 69, 'Jane': 3, 'Xavier': 1}
+        od1 = OrderedDict(mapping)
+        od2 = od1.copy()
+        print(od2)
 
+    def test_get(self):
+        print('get: ', end='')
+        mapping = {'Bob': 5, 'Alice': 8, 'George': 69, 'Jane': 3, 'Xavier': 1}
+        od = OrderedDict(mapping)
+        print(od.get('Jane'))
+
+    def test_items(self):
+        print('items: ', end='')
+        mapping = {'Bob': 5, 'Alice': 8, 'George': 69, 'Jane': 3, 'Xavier': 1}
+        od = OrderedDict(mapping)
+        for k, v in od.items():
+            print(k, v, ' ', end='')
+        print()
+
+    def test_keys(self):
+        print('keys: ', end='')
+        mapping = {'Bob': 5, 'Alice': 8, 'George': 69, 'Jane': 3, 'Xavier': 1}
+        od = OrderedDict(mapping)
+        for k in od.keys():
+            print(k, ' ', end='')
+        print()
+
+    def test_move_to_end(self):
+        print('move_to_end: ', end='')
+        mapping = {'Bob': 5, 'Alice': 8, 'George': 69, 'Jane': 3, 'Xavier': 1}
+        od = OrderedDict(mapping)
+        od.move_to_end('George', last=True)
+        od.move_to_end('Jane', last=False)
+        print(od)
+
+    def test_pop(self):
+        print('pop: ', end='')
+        mapping = {'Bob': 5, 'Alice': 8, 'George': 69, 'Jane': 3, 'Xavier': 1}
+        od = OrderedDict(mapping)
+        print(od.pop('Alice'), od)
+
+    def test_popitem(self):
+        print('popitem: ', end='')
+        mapping = {'Bob': 5, 'Alice': 8, 'George': 69, 'Jane': 3, 'Xavier': 1}
+        od = OrderedDict(mapping)
+        print(od.popitem(last=True), od.popitem(last=False), od)
+
+    def test_setdefault(self):
+        print('setdefault: ', end='')
+        mapping = {'Bob': 5, 'Alice': 8, 'George': 69, 'Jane': 3, 'Xavier': 1}
+        od = OrderedDict(mapping)
+        od.setdefault('Newguy', 0)  # if 'Newguy' is not in OrderedDict, then add ('Newguy', default_value) to OrderedDict
+        od.setdefault('Bob', 0)
+        print(od)
+
+    def test_update(self):  # can be used to concatenate OrderedDicts
+        print('update: ', end='')
+        mapping = {'Bob': 5, 'Alice': 8, 'George': 69, 'Jane': 3, 'Xavier': 1}
+        od = OrderedDict(mapping)
+        od1 = {'Jane': 12, 'Newguy': 42}
+        od.update(od1)
+        print(od)
+
+    def test_values(self):
+        print('values: ', end='')
+        mapping = {'Bob': 5, 'Alice': 8, 'George': 69, 'Jane': 3, 'Xavier': 1}
+        od = OrderedDict(mapping)
+        for v in od.values():
+            print(v, ' ', end='')
+        print()
 
     def test_OrderedDict(self):
+        self.test_fromkeys()
         self.test_init_mapping()
         self.test_init_iterable()
         self.test_init_iterable2()
@@ -150,6 +229,14 @@ class Solution(object):
         self.test_reversed()
         self.test_setitem()
         self.test_clear()
+        self.test_copy()
+        self.test_get()
+        self.test_move_to_end()
+        self.test_pop()
+        self.test_popitem()
+        self.test_setdefault()
+        self.test_update()
+        self.test_values()
 
 
 if __name__ == '__main__':

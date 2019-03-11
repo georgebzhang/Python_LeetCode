@@ -190,11 +190,11 @@ class Solution(object):
         d.setdefault('Bob', 0)
         print(d)
 
-    def test_update(self):
+    def test_update(self):  # can be used to concatenate dicts
         print('update: ', end='')
         mapping = {'Bob': 5, 'Alice': 8, 'George': 69, 'Jane': 3, 'Xavier': 1}
         d = dict(mapping)
-        d1 = {'Jane': 12}
+        d1 = {'Jane': 12, 'Newguy': 42}
         d.update(d1)
         print(d)
 
