@@ -152,7 +152,8 @@ class Solution(object):
         s2 = 'abdd'
         c1 = Counter(s1)
         c2 = Counter(s2)
-        c1.subtract(c2)
+        # c1.subtract(c2)  # don't need to have argument as Counter
+        c1.subtract(s2)
         print(c1)
 
     def test_update(self):
