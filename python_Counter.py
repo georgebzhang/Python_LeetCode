@@ -17,6 +17,11 @@ class Solution(object):
         c = Counter(l)
         print(c)
 
+    def test_init_by_field(self):
+        print('Counter(field=): ', end='')
+        c = Counter(a=2, b=4, c=-3)  # can have negative counts
+        print(c)
+
     def test_add(self):
         print('+: ', end='')
         s1 = 'abbcc'
@@ -290,6 +295,7 @@ class Solution(object):
     def test_Counter(self):
         self.test_init_string()
         self.test_init_list()
+        self.test_init_by_field()
         self.test_add()
         self.test_and()
         self.test_delitem()
