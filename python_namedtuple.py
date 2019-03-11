@@ -16,8 +16,8 @@ class Solution(object):
         n, a = p
         print(n, a)
 
-    def test_access_by_name(self):
-        print('access by name: ', end='')
+    def test_access_by_field(self):
+        print('access by field: ', end='')
         Person = namedtuple('Person', ['name', 'age'])
         p = Person('Bob', 36)
         print(p.name, p.age)
@@ -39,7 +39,7 @@ class Solution(object):
     def test_namedtuple(self):
         self.test_init()
         self.test_unpack()
-        self.test_access_by_name()
+        self.test_access_by_field()
         self.test_asdict()
         self.test_replace()
 
