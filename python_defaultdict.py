@@ -17,7 +17,7 @@ class Solution(object):
         print(dd)
 
     def test_init_int(self):
-        print('defaultdict(list): ', end='')
+        print('defaultdict(int): ', end='')
         dd = defaultdict(int)  # default value is 0
         transaction_record = [('George', 5), ('Bob', 7), ('Alice', 3), ('George', 6), ('Alice', 9)]
         for k, v in transaction_record:
