@@ -184,9 +184,11 @@ class Solution(object):
 
     def test_setdefault(self):
         print('setdefault: ', end='')
-        d = {}
+        mapping = {'Bob': 5, 'Alice': 8, 'George': 69, 'Jane': 3, 'Xavier': 1}
+        d = dict(mapping)
+        d.setdefault('Newguy', 0)  # if 'Newguy' is not in dict, then add ('Bob', default_value) to dict
         d.setdefault('Bob', 0)
-        print(d['Bob'])
+        print(d)
 
     def test_update(self):
         print('update: ', end='')
