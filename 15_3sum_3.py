@@ -4,24 +4,20 @@ from collections import Counter
 class Solution(object):
     def threeSum(self, nums):
         c = Counter(nums)
+        s = set()
+        result = []
+        for k1 in c:
+            for k2 in c:
+                k3 = 0 - k1 - k2
+                if k3 in c:
+                    s.add(tuple(sorted([k1, k2, k3])))
 
-        # List out all the 3somes.
-        threeSums = set()
-        for key_1 in c:
-            remainder = 0 - key_1
-            for key_2 in c:
-                key_3 = remainder - key_2
-                if key_3 in c:
-                    threeSums.add(tuple(sorted([key_1, key_2, key_3])))
+        for l in s:
+            c1 = Counter(l)
+            if all(c1[k] <= c[k] for k in c1):
+                result.append(l)
 
-        # Check that we aren't using any elements more times than they were in the original list.
-        validThreeSums = []
-        for triple in threeSums:
-            a = Counter(triple)
-            if all(a[key] <= c[key] for key in a):
-                validThreeSums.append(triple)
-
-        return list(validThreeSums)
+        return result
 
     def print_answer(self, ans):
         print(ans)
