@@ -19,7 +19,6 @@ class Solution(object):
             print(i, ' ', end='')
         print(type(gen))
 
-
     def test_generator(self):
         self.test_fn_square()
         self.test_listcomp_square()
