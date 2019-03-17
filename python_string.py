@@ -24,9 +24,6 @@ class Solution(object):
         print(s == t)
         # print(s is t)
 
-    def test_format(self):
-        pass
-
     def test_ge(self):
         print('>=: ', end='')
         s = 'iello'
@@ -141,7 +138,8 @@ class Solution(object):
         print(i)
 
     def test_format(self):
-        pass
+        print('format: ', end='')
+        print('Hi, my name is {}, and I\'m {}'.format('George', 24))
 
     def test_format_map(self):
         pass
@@ -328,6 +326,7 @@ class Solution(object):
         self.test_count()
         self.test_endswith()
         self.test_find()
+        self.test_format()
         self.test_index()
         self.test_isalnum()
         self.test_isalpha()
