@@ -9,26 +9,14 @@ class TreeNode:
 
 
 class Solution(object):
-    def maxDepth(self, root: TreeNode):
-        def traversal(node):
-            level = level_result[0]
-            result = level_result[1]
-            if level > result:
-                level_result[1] = level
-            if node.left:
-                level_result[0] += 1
-                traversal(node.left)
-                level_result[0] -= 1
-            if node.right:
-                level_result[0] += 1
-                traversal(node.right)
-                level_result[0] -= 1
-
+    def minDepth(self, root):
         if not root:
             return 0
-        level_result = [1, 1]
-        traversal(root)
-        return level_result[1]
+        left = self.minDepth(root.left)
+        right = self.minDepth(root.right)
+        if left == 0 or right == 0:
+            return left+right+1
+        return min(left, right)+1
 
     def print_answer(self, ans):
         print(ans)
@@ -73,7 +61,7 @@ class Solution(object):
         vals = [3, 9, 20, 'null', 'null', 15, 7]
         root = self.build_tree_inorder(vals)
         self.print_tree(root)
-        ans = self.maxDepth(root)
+        ans = self.minDepth(root)
         self.print_answer(ans)
 
 

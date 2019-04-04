@@ -10,25 +10,9 @@ class TreeNode:
 
 class Solution(object):
     def maxDepth(self, root: TreeNode):
-        def traversal(node):
-            level = level_result[0]
-            result = level_result[1]
-            if level > result:
-                level_result[1] = level
-            if node.left:
-                level_result[0] += 1
-                traversal(node.left)
-                level_result[0] -= 1
-            if node.right:
-                level_result[0] += 1
-                traversal(node.right)
-                level_result[0] -= 1
-
         if not root:
             return 0
-        level_result = [1, 1]
-        traversal(root)
-        return level_result[1]
+        return max(self.maxDepth(root.left), self.maxDepth(root.right)) + 1
 
     def print_answer(self, ans):
         print(ans)
