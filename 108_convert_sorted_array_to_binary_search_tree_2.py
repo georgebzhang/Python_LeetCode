@@ -11,28 +11,21 @@ class TreeNode:
 class Solution:
     def sortedArrayToBST(self, nums):
         def sortedArrayToBSTHelper(node, ind_left, right):
-            if right-ind_left == 0:
+            if right - ind_left == 0:
                 return None
-            if right-ind_left == 1:
+            if right - ind_left == 1:
                 return TreeNode(nums[ind_left])
 
-            ind_mid = (ind_left+right)//2
+            ind_mid = (ind_left + right) // 2
             node = TreeNode(nums[ind_mid])
             node.left = sortedArrayToBSTHelper(node.left, ind_left, ind_mid)
-            node.right = sortedArrayToBSTHelper(node.right, ind_mid+1, right)
+            node.right = sortedArrayToBSTHelper(node.right, ind_mid + 1, right)
             return node
 
         if not nums:
             return []
         root = None
         root = sortedArrayToBSTHelper(root, 0, len(nums))
-        return root
-
-        if not nums:
-            return []
-        n = len(nums)
-        root = None
-        root = sortedArrayToBSTHelper(root, 0, n-1)
         return root
 
     def print_tree(self, root):
