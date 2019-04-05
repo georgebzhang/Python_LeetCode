@@ -1,6 +1,7 @@
 class Solution(object):
     def findDuplicate(self, nums):
         # refer to 142. Linked List Cycle II
+        pass
 
     def print_ans(self, ans):
         print(ans)
