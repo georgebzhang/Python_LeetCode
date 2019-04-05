@@ -1,0 +1,23 @@
+class Solution(object):
+    def missingNumber(self, nums):
+        n = len(nums)
+        result = 0
+        for i in range(1, n+1):
+            result ^= i
+        for i in range(n):
+            result ^= nums[i]
+
+        return result
+
+    def print_ans(self, ans):
+        print(ans)
+
+    def test(self):
+        nums = [3, 0, 1]
+        ans = self.missingNumber(nums)
+        self.print_ans(ans)
+
+
+if __name__ == '__main__':
+    s = Solution()
+    s.test()
