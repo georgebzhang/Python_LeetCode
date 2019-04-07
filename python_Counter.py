@@ -141,6 +141,7 @@ class Solution(object):
         print(c2)
 
     def test_elements(self):
+        print('elements: ', end='')
         s = 'abcabcabc'
         c = Counter(s)
         print(''.join(sorted(c.elements())))
