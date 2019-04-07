@@ -6,7 +6,7 @@ class ListNode:
 
 class Solution(object):
     def mergeTwoLists(self, l1, l2):
-        dummy = tail = ListNode(None)
+        dummy = tail = ListNode(None)  # must set dummy = tail so that changes to tail affect dummy
         while l1 and l2:
             if l1.val < l2.val:
                 tail.next = l1
