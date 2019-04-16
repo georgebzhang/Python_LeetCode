@@ -7,7 +7,7 @@ class Solution(object):
             if v in visited:
                 return
             if v in visiting:
-                result[0] = False
+                self.result = False
                 print('Cycle!')
                 return
                 # raise Exception('Cycle!')
@@ -19,7 +19,7 @@ class Solution(object):
             visited.add(v)
             order.append(v)
 
-        result = [True]
+        self.result = True
         order = []  # topological order
         visiting = set()
         visited = set()
@@ -32,7 +32,7 @@ class Solution(object):
         for v in g:  # for vertex in graph
             dfs(v)
 
-        return result[0]
+        return self.result
 
     def print_ans(self, ans):
         print(ans)

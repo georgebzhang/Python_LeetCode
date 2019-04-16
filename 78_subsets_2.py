@@ -1,6 +1,3 @@
-from collections import Counter
-
-
 class Solution(object):
     def subsets(self, nums):
         def subsets_rec(perm, rem):
