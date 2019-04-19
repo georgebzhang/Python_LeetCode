@@ -5,16 +5,15 @@ from bisect import bisect_left as bsl
 
 class Solution(object):
     def lengthOfLIS(self, nums):
-        n = len(nums)
-        dp = [0]*n
-        result = 0
+        seq = []
         for num in nums:
-            i = bsl(dp, num, 0, result)
-            dp[i] = num
-            if i == result:
-                result += 1
+            i = bsl(seq, num)
+            if i == len(seq):
+                seq.append(num)
+            else:
+                seq[i] = num
 
-        return result
+        return len(seq)
 
     def print_ans(self, ans):
         print(ans)
