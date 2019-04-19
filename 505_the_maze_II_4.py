@@ -1,3 +1,4 @@
+from collections import deque
 import sys
 
 
@@ -22,9 +23,11 @@ class Solution(object):
 
             return result
 
-        def dfs(i, j):
-            for i2, j2 in ends(i, j):
-                dfs(i2, j2)
+        def bfs(i, j):
+            q = deque([(i, j)])
+            while q:
+                i, j = q.popleft()
+                q.extend(ends(i, j))
 
         M, N = len(maze), len(maze[0])
         start.reverse()
@@ -35,7 +38,7 @@ class Solution(object):
 
         dp = [[sys.maxsize for _ in range(N)] for _ in range(M)]
         dp[j_s][i_s] = 0
-        dfs(*start)  # unpack tuple
+        bfs(*start)  # unpack tuple
         return -1 if dp[j_d][i_d] == sys.maxsize else dp[j_d][i_d]
 
     def print_grid(self, grid):

@@ -1,42 +1,43 @@
+from collections import deque
 import sys
 
 
 class Solution(object):
+    # i represents rows (or y), j represents columns (or x)
     def hasPath(self, maze, start, destination):
-        dirs = ((-1, 0), (1, 0), (0, -1), (0, 1))
-        def ends(i0, j0):
+        def ends(p):
+            i0, j0 = p
             result = []
             for di, dj in dirs:
                 i, j = i0 + di, j0 + dj
                 dist = 0
-                while 0 <= i < N and 0 <= j < M and maze[j][i] != 1:
+                while 0 <= i < len(maze) and 0 <= j < len(maze[0]) and maze[i][j] == 0:
                     i += di
                     j += dj
                     dist += 1
                 i -= di
                 j -= dj
-                if (i, j) != (i0, j0):
-                    if dp[j0][i0]+dist < dp[j][i]:
-                        dp[j][i] = dp[j0][i0]+dist
+
+                if i != i0 or j != j0:
+                    if dists[i0][j0]+dist < dists[i][j]:
+                        dists[i][j] = dists[i0][j0]+dist
                         result.append((i, j))
 
             return result
 
-        def dfs(i, j):
-            for i2, j2 in ends(i, j):
-                dfs(i2, j2)
+        def bfs(p):
+            q = deque([p])
+            while q:
+                p = q.popleft()
+                q.extend(ends(p))
 
-        M, N = len(maze), len(maze[0])
-        start.reverse()
-        destination.reverse()
-        start, dest = tuple(start), tuple(destination)
-        i_s, j_s = start
-        i_d, j_d = dest
-
-        dp = [[sys.maxsize for _ in range(N)] for _ in range(M)]
-        dp[j_s][i_s] = 0
-        dfs(*start)  # unpack tuple
-        return -1 if dp[j_d][i_d] == sys.maxsize else dp[j_d][i_d]
+        dirs = ((0, -1), (0, 1), (-1, 0), (1, 0))
+        dists = [[sys.maxsize for _ in range(len(maze[0]))] for _ in range(len(maze))]
+        i_start, j_start = start
+        dists[i_start][j_start] = 0
+        bfs(tuple(start))
+        i_dest, j_dest = destination
+        return -1 if dists[i_dest][j_dest] == sys.maxsize else dists[i_dest][j_dest]
 
     def print_grid(self, grid):
         for row in grid:
