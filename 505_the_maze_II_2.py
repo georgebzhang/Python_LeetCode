@@ -18,7 +18,7 @@ class Solution(object):
                 if (i, j) != (i0, j0):
                     if dp[j0][i0]+dist < dp[j][i]:
                         dp[j][i] = dp[j0][i0]+dist
-                        result.append((i, j))
+                        result.append((i, j))  # only dfs from (i, j) if lower distance is found or else infinite bounces
 
             return result
 
