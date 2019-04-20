@@ -1,13 +1,35 @@
 class Solution(object):
     def numIslands(self, grid):
+        dirs = ((-1, 0), (1, 0), (0, -1), (0, 1))
+        def neighbors(i0, j0):
+            result = []
+            for di, dj in dirs:
+                i, j = i0 + di, j0 +dj
+                if 0 <= i < N and 0 <= j < M and grid[j][i] == '1':
+                    result.append((i, j))
+            return result
+
         def sink(i, j):
-            if 0 <= i < len(grid[0]) and 0 <= j < len(grid) and grid[j][i] == '1':
-                grid[j][i] = '0'
-                [sink(i, j) for i, j in [(i-1, j), (i+1, j), (i, j-1), (i, j+1)]]
-                return 1
+            if (i, j) in visited:
+                return
+            visited.add((i, j))
+            grid[j][i] = '0'
+            for n in neighbors(i, j):
+                sink(*n)
+
+        if not grid:
             return 0
 
-        return sum(sink(i, j) for i in range(len(grid[0])) for j in range(len(grid))) if grid else 0
+        M, N = len(grid), len(grid[0])
+        visited = set()
+        result = 0
+        for j in range(M):
+            for i in range(N):
+                if grid[j][i] == '1':
+                    result += 1
+                    sink(i, j)
+
+        return result
 
     def print_grid(self, grid):
         for row in grid:
