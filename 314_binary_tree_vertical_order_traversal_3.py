@@ -10,26 +10,27 @@ class TreeNode:
 
 class Solution(object):
     def verticalOrder(self, root):
-        def traversal(node):
-            columns_vals[column[0]].append(node.val)
-            if node.left:
-                column[0] -= 1
-                traversal(node.left)
-                column[0] += 1
-            if node.right:
-                column[0] += 1
-                traversal(node.right)
-                column[0] -= 1
+        def bfs(node):
+            q = deque([(node, 0)])
+            while q:
+                node, column = q.popleft()
+                if not node:
+                    continue
+                map[column].append(node.val)
+                q.append((node.left, column-1))
+                q.append((node.right, column+1))
 
         if not root:
             return []
-        column = [0]
-        columns_vals = defaultdict(list)
-        traversal(root)
+
+        map = defaultdict(list)  # {column: [vals]}
+        bfs(root)
+
         result = []
-        columns = sorted(columns_vals)
+        columns = sorted(map)
         for c in columns:
-            result.append(columns_vals[c])
+            result.append(map[c])
+
         return result
 
     def print_answer(self, ans):
@@ -67,7 +68,7 @@ class Solution(object):
         print(result)
 
     def test(self):
-        vals = [3, 9, 20, 'null', 'null', 15, 7]
+        vals = [3, 9, 8, 4, 0, 1, 7, 'null', 'null', 'null', 2, 5]
         root = self.build_tree(vals)
         self.print_tree(root)
         ans = self.verticalOrder(root)
