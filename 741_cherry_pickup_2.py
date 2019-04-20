@@ -3,6 +3,12 @@ import sys
 
 class Solution(object):
     def cherryPickup(self, grid):
+        def print_3D_grid(grid):
+            for aisle in grid:
+                for row in aisle:
+                    print(row)
+                print()
+
         dirs = ((1, 0, 0), (0, 1, 0), (1, 0, 1), (0, 1, 1))  # (di1, dj1, di2)
         def neighbors(i10, j10, i20):
             result = []
@@ -16,7 +22,7 @@ class Solution(object):
         def dfs(i1, j1, i2):
             j2 = i1 + j1 - i2
             dp[i2][j1][i1] = grid[j1][i1]
-            if (i1, j1) != (i2, j2):
+            if i1 != i2:  # (i1, j1) != (i2, j2)
                 dp[i2][j1][i1] += grid[j2][i2]
             else:
                 if (i1, j1) == end:
@@ -33,6 +39,7 @@ class Solution(object):
         dp = [[[0 for _ in range(N)] for _ in range(M)] for _ in range(N)]
 
         dfs(0, 0, 0)
+        # print_3D_grid(dp)
         return max(0, dp[0][0][0])
 
     def print_grid(self, grid):
