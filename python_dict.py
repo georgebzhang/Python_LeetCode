@@ -14,7 +14,6 @@ class Solution(object):
         d['George'] = 69
         print(d)
 
-
     def test_init_mapping(self):
         print('dict(mapping): ', end='')
         mapping = {

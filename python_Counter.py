@@ -180,7 +180,7 @@ class Solution(object):
     def test_eq(self):
         print('==: ', end='')
         s1 = 'abbcc'
-        s2 = 'abbcc'
+        s2 = 'cbabc'
         c1 = Counter(s1)
         c2 = Counter(s2)
         print(c1 == c2)
